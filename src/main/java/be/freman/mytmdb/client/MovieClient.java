@@ -21,7 +21,7 @@ public class MovieClient {
 	}
 
 	public Movie get(String title){
-		WebTarget target = client.target("htTp://localhost:8080/mytmdb/webapi/");
+		WebTarget target = client.target("http://localhost:8080/mytmdb/webapi/");
 		
 		Response response = target.path("movies/" + title).request(MediaType.APPLICATION_JSON).get(Response.class);
 		

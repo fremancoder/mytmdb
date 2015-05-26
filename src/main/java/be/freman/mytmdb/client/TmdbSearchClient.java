@@ -8,27 +8,29 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriBuilder;
 
-import be.freman.mytmdb.model.TmdbMovieInfo;
+import be.freman.mytmdb.model.TmdbSearchResult;
 
-public class TmdbClient {
-	
+public class TmdbSearchClient {
+
 	private Client client;
 	
-	public TmdbClient(){
+	public TmdbSearchClient(){
 		client = ClientBuilder.newClient();
-	}
+	}	
 	
-	public TmdbMovieInfo movieDetail(int movieId){
+	public TmdbSearchResult search(String title, int page){
 		
 		URI uri = UriBuilder.fromUri("http://localhost:8080/mytmdb/webapi")
-				.path("tmdbmovie/" + movieId)
+				.path("search/tmdbmovies")
+				.queryParam("title", title)
+				.queryParam("page",page)
 				.build();
 		
 		WebTarget target = client.target(uri);
 		
-		TmdbMovieInfo response = target.request(MediaType.APPLICATION_JSON).get(TmdbMovieInfo.class); 
+		TmdbSearchResult response = target.request(MediaType.APPLICATION_JSON).get(TmdbSearchResult.class); 
 
 		return response;
 	}
-
+	
 }

@@ -13,6 +13,7 @@ import org.junit.Test;
 
 import be.freman.mytmdb.model.MyMovie;
 import be.freman.mytmdb.model.TmdbMovieInfo;
+import be.freman.mytmdb.model.TmdbSearchMovieInfo;
 import be.freman.mytmdb.repository.PersistenceManager;
 
 public class MyMovieClientTest {
@@ -74,10 +75,8 @@ public class MyMovieClientTest {
 	public void testCreate() {
 		MyMovieClient client = new MyMovieClient();
 
-		TmdbMovieInfo movieInfo = new TmdbMovieInfo();
-		movieInfo.setTitle("Dit is de creatie test");
-
-		MyMovie myMovie = client.create(movieInfo);
+//		MyMovie myMovie = client.create(274866l);
+		MyMovie myMovie = client.create(603);
 
 		assertNotNull(myMovie);
 	}

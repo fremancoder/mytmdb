@@ -8,7 +8,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import be.freman.mytmdb.model.MyMovie;
-import be.freman.mytmdb.model.TmdbMovieInfo;
 
 public class MyMovieClient {
 	
@@ -18,10 +17,10 @@ public class MyMovieClient {
 		client = ClientBuilder.newClient();
 	}
 
-	public MyMovie create(TmdbMovieInfo movie) {
+	public MyMovie create(Integer tmdbSearchMovieInfoId) {
 		WebTarget target = client.target("htTp://localhost:8080/mytmdb/webapi/");
 
-		Response response = target.path("movie").request(MediaType.APPLICATION_JSON).post(Entity.entity(movie, MediaType.APPLICATION_JSON));
+		Response response = target.path("movies/add/" + tmdbSearchMovieInfoId).request(MediaType.APPLICATION_JSON).get();
 		
 		if(response.getStatus() != 200){
 			throw new RuntimeException(response.getStatus() + ": there was an error on the server.");
@@ -33,7 +32,7 @@ public class MyMovieClient {
 	public MyMovie find(Long movieId) {
 		WebTarget target = client.target("htTp://localhost:8080/mytmdb/webapi/");
 
-		Response response = target.path("movie/" + movieId).request(MediaType.APPLICATION_JSON).get();
+		Response response = target.path("movies/" + movieId).request(MediaType.APPLICATION_JSON).get();
 		
 		if(response.getStatus() != 200){
 			throw new RuntimeException(response.getStatus() + ": there was an error on the server.");
@@ -46,7 +45,7 @@ public class MyMovieClient {
 	public void delete(Long movieId) {
 		WebTarget target = client.target("htTp://localhost:8080/mytmdb/webapi/");
 
-		Response response = target.path("movie/" + movieId).request(MediaType.APPLICATION_JSON).delete();
+		Response response = target.path("movies/" + movieId).request(MediaType.APPLICATION_JSON).delete();
 		
 		if(response.getStatus() != 200){
 			throw new RuntimeException(response.getStatus() + ": there was an error on the server.");
@@ -56,7 +55,7 @@ public class MyMovieClient {
 	public MyMovie update(MyMovie movie) {
 		WebTarget target = client.target("htTp://localhost:8080/mytmdb/webapi/");
 
-		Response response = target.path("movie/" + movie.getId()).request(MediaType.APPLICATION_JSON).put(Entity.entity(movie, MediaType.APPLICATION_JSON));
+		Response response = target.path("movies/" + movie.getId()).request(MediaType.APPLICATION_JSON).put(Entity.entity(movie, MediaType.APPLICATION_JSON));
 		
 		if(response.getStatus() != 200){
 			throw new RuntimeException(response.getStatus() + ": there was an error on the server.");

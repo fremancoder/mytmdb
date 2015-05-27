@@ -13,7 +13,7 @@ import be.freman.mytmdb.model.TmdbMovieInfo;
 import be.freman.mytmdb.service.TmdbService;
 import be.freman.mytmdb.service.TmdbServiceImpl;
 
-@Path("tmdbmovie")
+@Path("tmdbmovies")
 public class TmdbResource {
 
 	private TmdbService tmdbService = new TmdbServiceImpl();

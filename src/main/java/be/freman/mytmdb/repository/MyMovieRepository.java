@@ -8,7 +8,7 @@ public interface MyMovieRepository {
 	
 	void create(MyMovie movie);	
 
-	MyMovie update(MyMovie movie);	
+	MyMovie toggleSeen(Long movieId);	
 
 	void delete(Long movieId);	
 	

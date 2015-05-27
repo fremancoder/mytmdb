@@ -23,9 +23,11 @@ public class MyMovieRepositoryImpl implements MyMovieRepository{
 	}
 
 	@Override
-	public MyMovie update(MyMovie movie) {
+	public MyMovie toggleSeen(Long movieId) {
 
 		em.getTransaction().begin();
+	    MyMovie movie = em.find(MyMovie.class, movieId);
+	    movie.setSeen(!movie.isSeen());
 	    movie = em.merge(movie);
 	    em.flush();
 	    em.getTransaction().commit();

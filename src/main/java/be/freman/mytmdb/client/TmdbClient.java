@@ -21,7 +21,7 @@ public class TmdbClient {
 	public TmdbMovieInfo movieDetail(int movieId){
 		
 		URI uri = UriBuilder.fromUri("http://localhost:8080/mytmdb/webapi")
-				.path("tmdbmovie/" + movieId)
+				.path("tmdbmovies/" + movieId)
 				.build();
 		
 		WebTarget target = client.target(uri);

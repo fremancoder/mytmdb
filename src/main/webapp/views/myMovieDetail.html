@@ -1,0 +1,18 @@
+<div>
+	<h2>{{movieDetails.title}}</h2>
+	<div class="row">
+		<div class="col-lg-6">
+			<img ng-src="{{movieDetails.posterPath}}" />
+		</div>
+		<div class="col-lg-6">
+			<h3>{{movieDetails.title}}</h3>
+			<blockquote>
+				<small>{{movieDetails.tagline}}</small>
+				<p>{{movieDetails.overview}}</p>
+			</blockquote>
+			<div class="well">homepage: <a ng-href="{{movieDetails.homePage}}" target="_blank">{{movieDetails.homePage}}</a></div>
+			<div class="well" style="background: #93c54b;">Imdb: <a ng-href="{{movieDetails.imdbId}}" style="color: #f8f5f0;" target="_blank">{{movieDetails.imdbId}}</a></div>
+			<youtube width="560" videoid="{{movieDetails.youTubeLink}}"></youtube>		
+		</div>
+	</div>
+</div>

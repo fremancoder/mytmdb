@@ -1,5 +1,6 @@
 package be.freman.mytmdb.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -25,6 +26,7 @@ public class MyMovie {
 	
 	private String originalTitle;
 	
+	@Column(length=2500)
 	private String overview;
 	
 	private String posterPath;
@@ -36,6 +38,8 @@ public class MyMovie {
 	private String title;
 	
 	private boolean seen;
+	
+	private String youTubeLink;
 
 	public String getBackdropPath() {
 		return backdropPath;
@@ -79,6 +83,10 @@ public class MyMovie {
 
 	public Integer getTmdbId() {
 		return tmdbId;
+	}
+
+	public String getYouTubeLink() {
+		return youTubeLink;
 	}
 
 	public boolean isSeen() {
@@ -131,6 +139,10 @@ public class MyMovie {
 
 	public void setTmdbId(Integer tmdbId) {
 		this.tmdbId = tmdbId;
+	}
+
+	public void setYouTubeLink(String youTubeLink) {
+		this.youTubeLink = youTubeLink;
 	}
 	
 }

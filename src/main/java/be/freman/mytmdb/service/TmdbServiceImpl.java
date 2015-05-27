@@ -9,6 +9,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriBuilder;
 
 import be.freman.mytmdb.model.TmdbMovieInfo;
+import be.freman.mytmdb.model.TmdbMovieTrailerResult;
 import be.freman.mytmdb.model.TmdbSearchResult;
 
 public class TmdbServiceImpl implements TmdbService{
@@ -49,7 +50,7 @@ public class TmdbServiceImpl implements TmdbService{
 	}
 
 	@Override
-	public TmdbMovieInfo movieDetail(int id) {
+	public TmdbMovieInfo movieDetail(Integer id) {
 		URI uri = UriBuilder.fromUri(FROM_URI)
 				.path(MOVIE_PATH + id)
 				.queryParam("api_key", API_KEY)
@@ -62,4 +63,23 @@ public class TmdbServiceImpl implements TmdbService{
 		return response;
 	}
 
+	@Override
+	public TmdbMovieTrailerResult movieTrailers(Integer id) {
+		URI uri = UriBuilder.fromUri(FROM_URI)
+				.path(MOVIE_PATH + id)
+				.path("videos")
+				.queryParam("api_key", API_KEY)
+				.build();
+
+		System.out.println("xxxxxxxxxxxxxxx id : " + id);
+		System.out.println("xxxxxxxxxxxxxxx uri : " + uri.toString());
+		
+		WebTarget target = client.target(uri);
+
+		TmdbMovieTrailerResult response = target.request(MediaType.APPLICATION_JSON).get(TmdbMovieTrailerResult.class); 
+		
+		System.out.println("xxxxxxxxxxxxxxx result : " + response.getMovieTrailers());
+		
+		return response;
+	}
 }

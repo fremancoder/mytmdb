@@ -13,7 +13,7 @@ public class TmdbSearchMovieInfo {
 	@XmlElement(name="backdrop_path")
 	private String backdropPath;
 
-	private Long id;
+	private Integer id;
 	
 	@XmlElement(name="original_title")
 	private String originalTitle;
@@ -39,7 +39,7 @@ public class TmdbSearchMovieInfo {
 	public String getBackdropPath() {
 		return backdropPath;
 	}
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 	public String getOriginalTitle() {
@@ -75,7 +75,7 @@ public class TmdbSearchMovieInfo {
 	public void setBackdropPath(String backdropPath) {
 		this.backdropPath = backdropPath;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public void setOriginalTitle(String originalTitle) {

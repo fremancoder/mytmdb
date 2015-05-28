@@ -39,6 +39,8 @@ public class MyMovie {
 	
 	private boolean seen;
 	
+	private boolean subtitles;
+
 	private String youTubeLink;
 
 	public String getBackdropPath() {
@@ -93,6 +95,10 @@ public class MyMovie {
 		return seen;
 	}
 
+	public boolean isSubtitles() {
+		return subtitles;
+	}
+
 	public void setBackdropPath(String backdropPath) {
 		this.backdropPath = backdropPath;
 	}
@@ -127,6 +133,10 @@ public class MyMovie {
 
 	public void setSeen(boolean seen) {
 		this.seen = seen;
+	}
+
+	public void setSubtitles(boolean subtitles) {
+		this.subtitles = subtitles;
 	}
 
 	public void setTagline(String tagline) {

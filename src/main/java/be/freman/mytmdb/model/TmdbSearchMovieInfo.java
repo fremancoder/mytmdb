@@ -19,7 +19,7 @@ public class TmdbSearchMovieInfo {
 	private String originalTitle;
 	
 	@XmlElement(name="release_date")
-	private Date releaseDate;
+	private String releaseDate;
 	
 	@XmlElement(name="poster_path")
 	private String posterPath;
@@ -51,7 +51,7 @@ public class TmdbSearchMovieInfo {
 	public String getPosterPath() {
 		return posterPath;
 	}
-	public Date getReleaseDate() {
+	public String getReleaseDate() {
 		return releaseDate;
 	}
 	public String getTitle() {
@@ -87,7 +87,7 @@ public class TmdbSearchMovieInfo {
 	public void setPosterPath(String posterPath) {
 		this.posterPath = posterPath;
 	}
-	public void setReleaseDate(Date releaseDate) {
+	public void setReleaseDate(String releaseDate) {
 		this.releaseDate = releaseDate;
 	}
 	public void setTitle(String title) {

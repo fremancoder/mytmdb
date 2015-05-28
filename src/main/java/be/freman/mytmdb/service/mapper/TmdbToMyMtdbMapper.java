@@ -15,7 +15,7 @@ public class TmdbToMyMtdbMapper {
 		myMovie.setOverview(tmdbMovie.getOverview());
 		myMovie.setPosterPath("http://image.tmdb.org/t/p/w500/" + tmdbMovie.getPosterPath());
 		myMovie.setRuntime(tmdbMovie.getRuntime());
-		myMovie.setSeen(false);
+		myMovie.setSeen(true);
 		myMovie.setTagline(tmdbMovie.getTagline());
 		myMovie.setTitle(tmdbMovie.getTitle());
 		myMovie.setTmdbId(tmdbMovie.getId());

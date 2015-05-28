@@ -9,7 +9,7 @@
 		} 
 		
 		var onError = function(reason){
-			$scope.error = "Something went terribly wrong!"; 
+			$scope.error = "There are no results or the service was down!"; 
 		} 
 
 		$scope.search = function(movieTitle, currentPage) {

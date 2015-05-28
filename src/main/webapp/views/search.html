@@ -11,6 +11,7 @@
 						<tr>
 							<th>Id</th>
 							<th>Title</th>
+							<th>released</th>
 							<th>Poster</th>
 							<th>Vote Average</th>
 							<th>Add to collection</th>
@@ -20,6 +21,7 @@
 						<tr ng-repeat="movie in movies.results">
 							<td>{{movie.id}}</td>
 							<td>{{movie.title}}</td>
+							<td>{{movie.release_date}}</td>
 							<td><img alt="nothing"
 								ng-src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}"
 								height="42" width="42"></td>

@@ -41,6 +41,15 @@ public class MyMovieResource {
 		return Response.ok().entity(movie).build();
 	}	
 	
+	@PUT
+	@Path("{movieId}/subtitle")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+	public Response updateSubtitle(@PathParam ("movieId") Long movieId){
+		MyMovie movie = movieRepository.toggleSubtitle(movieId);
+		return Response.ok().entity(movie).build();
+	}	
+
 	@GET
 	@Path("add/{tmdbMovieId}")
 	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})

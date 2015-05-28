@@ -18,6 +18,20 @@
 				.then(onMovieGet, onError);
 		};
 		
+		var onMovieUpdate = function(response){
+			$scope.movieDetails = response.data; 
+		}; 
+
+		$scope.toggleSeen = function(movieId){
+			$http.put("http://localhost:8080/mytmdb/webapi/movies/" + movieId + "/seen")
+				.then(onMovieUpdate, onError);
+		};
+		
+		$scope.toggleSubtitle = function(movieId){
+			$http.put("http://localhost:8080/mytmdb/webapi/movies/" + movieId + "/subtitle")
+				.then(onMovieUpdate, onError);
+		};		
+		
 		getMovie();
 
 	}

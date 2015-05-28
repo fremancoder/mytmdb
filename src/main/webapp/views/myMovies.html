@@ -1,28 +1,35 @@
 <div>
 	<form name="myMovieList" >
 		</br>
+		<div class="filter">
+		  <label for="filter">filter:</label>
+		  <input type="text" name="filter" ng-model="filter" />
+		</div>		
 		<div>
 			<div>
 				<table class="table table-striped table-hover ">
 					<thead>
 						<tr>
-							<th>Title/Home Page</th>
+							<th><a ng-click="sort='title'; reverse=!reverse">Title/Home Page</a></th>
 							<th>IMDB</th>
 							<th>Poster</th>
 							<th>Runtime</th>
-							<th>Seen</th>
+							<th><a ng-click="sort='subtitles'; reverse=!reverse">Subtitles</a></th>
+							<th><a ng-click="sort='seen'; reverse=!reverse">Seen</a></th>
 							<th>Delete</th>
 							<th>Detail</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr ng-repeat="movie in mymovies"  ng-show="!error" >
+						<tr ng-repeat="movie in mymovies | filter:filter | orderBy:sort:reverse" ng-show="!error">
 							<td><a ng-href="{{movie.homePage}}" target="_blank">{{movie.title}}</a></td>
 							<td><a ng-href="{{movie.imdbId}}" target="_blank">{{movie.imdbId}}</a></td>
 							<td><img alt="nothing" ng-src="{{movie.posterPath}}" height="42" width="42"></td>
 							<td>{{movie.runtime}}</td>
-							<td ng-show="{{movie.seen}}"><button type="submit" ng-click="toggleSeen(movie.id, movie.seen)" class="btn btn-success">Seen</button></td>
-							<td ng-show="{{!movie.seen}}"><button type="submit" ng-click="toggleSeen(movie.id, movie.seen)" class="btn btn-warning">Not seen </button></td>
+							<td ng-show="{{movie.subtitles}}"><button type="submit" ng-click="toggleSubtitle(movie.id)" class="btn btn-success">Subs</button></td>
+							<td ng-show="{{!movie.subtitles}}"><button type="submit" ng-click="toggleSubtitle(movie.id)" class="btn btn-warning">No subs </button></td>
+							<td ng-show="{{movie.seen}}"><button type="submit" ng-click="toggleSeen(movie.id)" class="btn btn-success">Seen</button></td>
+							<td ng-show="{{!movie.seen}}"><button type="submit" ng-click="toggleSeen(movie.id)" class="btn btn-warning">Not seen </button></td>
 							<td><button type="submit" ng-click="deleteMovie(movie.id)" class="btn btn-danger">Delete</button></td>
 							<td><button type="submit" ng-click="showDetails(movie.id)" class="btn btn-success">Detail</button></td>
 						</tr>

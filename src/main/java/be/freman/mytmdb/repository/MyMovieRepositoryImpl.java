@@ -37,6 +37,21 @@ public class MyMovieRepositoryImpl implements MyMovieRepository{
 	}
 
 	@Override
+	public MyMovie toggleSubtitle(Long movieId) {
+
+		em.getTransaction().begin();
+	    MyMovie movie = em.find(MyMovie.class, movieId);
+	    movie.setSubtitles(!movie.isSubtitles());
+	    movie = em.merge(movie);
+	    em.flush();
+	    em.getTransaction().commit();
+	    em.close();
+    
+	    return movie;
+	}
+
+	
+	@Override
 	public void delete(Long movieId) {
 		
 	    em.getTransaction().begin();

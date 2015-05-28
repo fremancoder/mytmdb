@@ -5,7 +5,13 @@
 			<img ng-src="{{movieDetails.posterPath}}" />
 		</div>
 		<div class="col-lg-6">
-			<h3>{{movieDetails.title}}</h3>
+			<div class="row">
+				<h3 style="display: inline;">{{movieDetails.title}}</h3>
+				<img title="seen" src="images/viewed.png" height="30" ng-show="movieDetails.seen" ng-click="toggleSeen(movieDetails.id)"></img>
+				<img title="not seen" src="images/not-viewed.png" height="30" ng-show="!movieDetails.seen" ng-click="toggleSeen(movieDetails.id)"></img>
+				<img title="subtitles present" src="images/srt.png" height="30" ng-show="movieDetails.subtitles" ng-click="toggleSubtitle(movieDetails.id)"></img>
+				<img title="subtitles present" src="images/no-srt.png" height="30" ng-show="!movieDetails.subtitles" ng-click="toggleSubtitle(movieDetails.id)"></img>
+			</div>
 			<blockquote>
 				<small>{{movieDetails.tagline}}</small>
 				<p>{{movieDetails.overview}}</p>

@@ -14,6 +14,8 @@ public interface MyMovieRepository {
 	
 	List<MyMovie> getAll();	
 
-	MyMovie find(Long movieId);	
+	MyMovie find(Long movieId);
+
+	MyMovie toggleSubtitle(Long movieId);	
 
 }

@@ -22,7 +22,7 @@ public class TmdbServiceImpl implements TmdbService{
 	
 	private final static String MOVIE_PATH = "movie/";
 
-	private final static String API_KEY =  "the API-KEY";
+	private final static String API_KEY =  "660f8a1104d6fb5ca6057ab7340dfa74";
 
 	public TmdbServiceImpl(){
 		client = ClientBuilder.newClient();
@@ -44,8 +44,6 @@ public class TmdbServiceImpl implements TmdbService{
 		
 		WebTarget target = client.target(uri);
 
-		System.out.println("xxxxxxxx : " + uri.toString());
-		
 		TmdbSearchResult response = target.request(MediaType.APPLICATION_JSON).get(TmdbSearchResult.class); 
 		
 		return response;

@@ -9,10 +9,9 @@ import be.freman.mytmdb.model.MyMovie;
 
 public class MyMovieRepositoryImpl implements MyMovieRepository{
 
-	EntityManager em = PersistenceManager.INSTANCE.getEntityManager();
-
 	@Override
 	public void create(MyMovie movie) {
+		EntityManager em = PersistenceManager.INSTANCE.getEntityManager();
 		
 	    em.getTransaction().begin();
 	    em.persist(movie);
@@ -24,6 +23,7 @@ public class MyMovieRepositoryImpl implements MyMovieRepository{
 
 	@Override
 	public MyMovie toggleSeen(Long movieId) {
+		EntityManager em = PersistenceManager.INSTANCE.getEntityManager();
 
 		em.getTransaction().begin();
 	    MyMovie movie = em.find(MyMovie.class, movieId);
@@ -38,6 +38,7 @@ public class MyMovieRepositoryImpl implements MyMovieRepository{
 
 	@Override
 	public MyMovie toggleSubtitle(Long movieId) {
+		EntityManager em = PersistenceManager.INSTANCE.getEntityManager();
 
 		em.getTransaction().begin();
 	    MyMovie movie = em.find(MyMovie.class, movieId);
@@ -53,6 +54,7 @@ public class MyMovieRepositoryImpl implements MyMovieRepository{
 	
 	@Override
 	public void delete(Long movieId) {
+		EntityManager em = PersistenceManager.INSTANCE.getEntityManager();
 		
 	    em.getTransaction().begin();
 	    MyMovie myMovie = em.find(MyMovie.class, movieId);
@@ -66,6 +68,7 @@ public class MyMovieRepositoryImpl implements MyMovieRepository{
 	@Override
     @SuppressWarnings("unchecked")
 	public List<MyMovie> getAll() {
+		EntityManager em = PersistenceManager.INSTANCE.getEntityManager();
 
 		Query q = em.createQuery("select m from MyMovie m");
 		List<MyMovie> myMovies = (List<MyMovie>) q.getResultList();	    
@@ -76,6 +79,7 @@ public class MyMovieRepositoryImpl implements MyMovieRepository{
 
 	@Override
 	public MyMovie find(Long movieId) {
+		EntityManager em = PersistenceManager.INSTANCE.getEntityManager();
 		
 	    MyMovie myMovie = em.find(MyMovie.class, movieId);
 	    em.close();

@@ -22,7 +22,7 @@ public class TmdbServiceImpl implements TmdbService{
 	
 	private final static String MOVIE_PATH = "movie/";
 
-	private final static String API_KEY =  "660f8a1104d6fb5ca6057ab7340dfa74";
+	private final static String API_KEY =  "the key";
 
 	public TmdbServiceImpl(){
 		client = ClientBuilder.newClient();

@@ -14,7 +14,7 @@
 
 
 		var getMovie = function(){
-			$http.get("http://localhost:8080/mytmdb/webapi/movies/" + $routeParams.movieid )
+			$http.get("http://84.196.249.71:8080/mytmdb/webapi/movies/" + $routeParams.movieid )
 				.then(onMovieGet, onError);
 		};
 		
@@ -23,12 +23,12 @@
 		}; 
 
 		$scope.toggleSeen = function(movieId){
-			$http.put("http://localhost:8080/mytmdb/webapi/movies/" + movieId + "/seen")
+			$http.put("http://84.196.249.71:8080/mytmdb/webapi/movies/" + movieId + "/seen")
 				.then(onMovieUpdate, onError);
 		};
 		
 		$scope.toggleSubtitle = function(movieId){
-			$http.put("http://localhost:8080/mytmdb/webapi/movies/" + movieId + "/subtitle")
+			$http.put("http://84.196.249.71:8080/mytmdb/webapi/movies/" + movieId + "/subtitle")
 				.then(onMovieUpdate, onError);
 		};		
 		

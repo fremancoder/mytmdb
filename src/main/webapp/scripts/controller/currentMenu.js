@@ -2,18 +2,18 @@
 	
 	var app = angular.module("tmdbViewer");
 	
-	var MyMenuController = function($location, $scope) {
+	var MyMenuController = function($location, $scope, $rootScope) {
 		
-		$scope.switch = function(type){
-			if(type == 'search') {
-				$scope.currentMenuMyMovies = false;
+		$scope.isMenu = function(menu){
+			if($rootScope.menuOption == menu) {
+				return true;
 			} else {
-				$scope.currentMenuMyMovies = true;
+				return false;
 			}
 		}
 		
 	}	
 	
-	app.controller("MyMenuController", ["$location", "$scope", MyMenuController]);
+	app.controller("MyMenuController", ["$location", "$scope", "$rootScope", MyMenuController]);
 	
 }());

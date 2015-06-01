@@ -9,7 +9,7 @@ angular.module('Authentication')
         var service = {};
  
         service.Login = function (username, password, callback) {
-            $http.post('http://localhost:8080/mytmdb/webapi/authenticate', { username: username, password: password })
+            $http.post('http://84.196.249.71:8080/mytmdb/webapi/authenticate', { username: username, password: password })
                 .success(function () {
                 	var response = {success: true};
                     callback(response);

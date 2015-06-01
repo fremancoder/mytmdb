@@ -40,10 +40,10 @@
 			
 			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
 			      <ul class="nav navbar-nav">
-			        <li class="active" ng-show="!currentMenuMyMovies"><a href="#search" ng-click="switch('search')">Search Tmdb <span class="sr-only">(current)</span></a></li>
-			        <li  ng-show="currentMenuMyMovies"><a href="#search" ng-click="switch('search')">Search Tmdb</a></li>
-			        <li class="active"  ng-show="currentMenuMyMovies"><a href="#myMovies"  ng-click="switch('detail')">My Movies <span class="sr-only">(current)</span></a></li>
-			        <li  ng-show="!currentMenuMyMovies"><a href="#myMovies" ng-click="switch('detail')">My Movies</a></li>
+			        <li class="active" ng-show="isMenu('search')"><a href="#search">Search Tmdb <span class="sr-only">(current)</span></a></li>
+			        <li  ng-show="!isMenu('search')"><a href="#search">Search Tmdb</a></li>
+			        <li class="active"  ng-show="isMenu('myMovies')"><a href="#myMovies">My Movies <span class="sr-only">(current)</span></a></li>
+			        <li  ng-show="!isMenu('myMovies')"><a href="#myMovies">My Movies</a></li>
 			      </ul>
 			    </div>
 			  </div>

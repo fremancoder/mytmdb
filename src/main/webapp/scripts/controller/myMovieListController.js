@@ -2,7 +2,7 @@
 	
 	var app = angular.module("tmdbViewer");
 	
-	var MyMovieListController = function($scope, $http, $log, $location) {
+	var MyMovieListController = function($scope, $http, $log, $location, $rootScope) {
 		
 		var onMovieComplete = function(response){
 			$scope.mymovies = response.data;
@@ -13,7 +13,8 @@
 		}; 
 
 		var search = function() {
-			$http.get("http://localhost:8080/mytmdb/webapi/search/movies")
+        	$rootScope.menuOption = 'myMovies';
+			$http.get("http://84.196.249.71:8080/mytmdb/webapi/search/movies")
 				.then(onMovieComplete, onError);
 		};
 		
@@ -22,7 +23,7 @@
 		}; 
 
 		$scope.deleteMovie = function(movieId){
-			$http.delete("http://localhost:8080/mytmdb/webapi/movies/" + movieId)
+			$http.delete("http://84.196.249.71:8080/mytmdb/webapi/movies/" + movieId)
 				.then(onMovieDelete, onError);
 		}
 		
@@ -31,12 +32,12 @@
 		}; 
 
 		$scope.toggleSeen = function(movieId){
-			$http.put("http://localhost:8080/mytmdb/webapi/movies/" + movieId + "/seen")
+			$http.put("http://84.196.249.71:8080/mytmdb/webapi/movies/" + movieId + "/seen")
 				.then(onMovieUpdate, onError);
 		};
 		
 		$scope.toggleSubtitle = function(movieId){
-			$http.put("http://localhost:8080/mytmdb/webapi/movies/" + movieId + "/subtitle")
+			$http.put("http://84.196.249.71:8080/mytmdb/webapi/movies/" + movieId + "/subtitle")
 				.then(onMovieUpdate, onError);
 		};
 
@@ -47,6 +48,6 @@
 		search();
 	}
 	
-	app.controller("MyMovieListController", ["$scope", "$http", "$log", "$location",  MyMovieListController]);
+	app.controller("MyMovieListController", ["$scope", "$http", "$log", "$location", "$rootScope", MyMovieListController]);
 	
 }());

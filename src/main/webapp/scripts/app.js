@@ -31,10 +31,11 @@
 						controller: "MyMovieDetailController"
 					})
 			.otherwise({redirectTo:"/login"});
-	}).run(['$rootScope', '$location', '$cookieStore', '$http',
-    function ($rootScope, $location, $cookieStore, $http) {
-        $rootScope.globals = $cookieStore.get('globals') || {};
-        if ($rootScope.globals.currentUser) {
+	}).run(['$rootScope', '$location', '$cookieStore', '$http', function ($rootScope, $location, $cookieStore, $http) {
+        
+		$rootScope.globals = $cookieStore.get('globals') || {};
+        
+		if ($rootScope.globals.currentUser) {
             $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
         }
   
@@ -43,6 +44,7 @@
                 $location.path('/login');
             }
         });
+        
     }]);
 	
 }());
